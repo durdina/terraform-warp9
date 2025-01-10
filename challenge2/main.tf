@@ -1,9 +1,11 @@
 provider "aws" {
-    region = "eu-west-2"
+    region = "us-east-1"
+    access_key = "AKIA4HH4NCCWFIAFAO5J"
+    secret_key = "**************"
 }
 
 resource "aws_instance" "db" {
-    ami = "ami-032598fcc7e9d1c7a"
+    ami = "ami-01c647eace872fc02"
     instance_type = "t2.micro"
 
     tags = {
@@ -12,7 +14,7 @@ resource "aws_instance" "db" {
 }
 
 resource "aws_instance" "web" {
-    ami = "ami-032598fcc7e9d1c7a"
+    ami = "ami-01c647eace872fc02"
     instance_type = "t2.micro"
     security_groups = [aws_security_group.web_traffic.name]
     user_data = file("server-script.sh")

@@ -1,5 +1,7 @@
 provider "aws" {
-  region = "eu-west-2"
+  region = "us-east-1"
+  access_key = "AKIA4HH4NCCWFIAFAO5J"
+  secret_key = "**************"
 }
 
 
@@ -46,6 +48,10 @@ resource "aws_vpc" "myvpc" {
 output "vpcid" {
   value = aws_vpc.myvpc.id
 }
+output "vpcarn" {
+  value = aws_vpc.myvpc.arn
+}
+
 
 variable "mytuple" {
   type    = tuple([string, number, string])
